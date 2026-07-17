@@ -102,11 +102,11 @@ export const sponsorTiers = [
   { key: 'kafei', name: '咖啡赞助', amount: '¥ 6', color: 'is-success' },
 ];
 
-export const sponsorsByTier: Record<string, { name: string; role: string; desc: string }[]> = {
+export const sponsorsByTier: Record<string, { name: string; role: string; desc: string; url?: string; amount?: string }[]> = {
   hao: [],
   dacan: [],
   naicha: [
-    { name: 'liWanr', role: '赞助者', desc: '期待ing，尽快开发，加油！' },
+    { name: 'liWanr', role: '赞助者', desc: '期待ing，尽快开发，加油！', url: 'https://liWanr.com', amount: '¥ 20' },
   ],
   kafei: [],
   other: [

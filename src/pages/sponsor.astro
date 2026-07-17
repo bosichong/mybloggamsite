@@ -78,9 +78,10 @@ import { sponsorMethods, sponsorTiers, sponsorsByTier } from '../config/site';
                   <div class="sponsor-item">
                     <div class="sponsor-avatar">{s.name[0]}</div>
                     <div class="sponsor-info">
-                      <h4 class="sponsor-name">{s.name}</h4>
+                      <h4 class="sponsor-name">{s.url ? <a href={s.url} target="_blank" class="sponsor-link">{s.name}</a> : s.name}</h4>
                       <span class="sponsor-role">{s.role}</span>
                       <p class="sponsor-desc">{s.desc}</p>
+                      {s.amount && <span class="sponsor-amount">{s.amount}</span>}
                     </div>
                   </div>
                 </div>
@@ -105,9 +106,10 @@ import { sponsorMethods, sponsorTiers, sponsorsByTier } from '../config/site';
             <div class="sponsor-item">
               <div class="sponsor-avatar">{s.name[0]}</div>
               <div class="sponsor-info">
-                <h4 class="sponsor-name">{s.name}</h4>
+                <h4 class="sponsor-name">{s.url ? <a href={s.url} target="_blank" class="sponsor-link">{s.name}</a> : s.name}</h4>
                 <span class="sponsor-role">{s.role}</span>
                 <p class="sponsor-desc">{s.desc}</p>
+                {s.amount && <span class="sponsor-amount">{s.amount}</span>}
               </div>
             </div>
           </div>
@@ -317,6 +319,25 @@ import { sponsorMethods, sponsorTiers, sponsorsByTier } from '../config/site';
     font-size: 0.8rem;
     color: #fff;
     margin-bottom: 0.2rem;
+  }
+
+  .sponsor-link {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .sponsor-link:hover {
+    color: var(--accent);
+  }
+
+  .sponsor-amount {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #f7d44a;
+    font-weight: bold;
   }
 
   .sponsor-role {
