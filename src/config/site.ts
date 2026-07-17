@@ -167,4 +167,6 @@ export const extraBloggers = [
   { blog: '瓦匠不舟', author: '瓦匠', type: '综合', lv: 1, url: 'https://airy.ink' },
   { blog: '云白的地球online', author: 'deepwhitex', type: '综合', lv: 1, url: 'https://deepwhitex.com' },
   { blog: 'Mayx的博客', author: 'Mayx', type: '综合', lv: 1, url: 'https://mabbs.github.io' },
+  { blog: '宗宗酱', author: '宗宗酱', type: '综合', lv: 1, url: 'https://ygz.ink' },
+  { blog: '荒野菲克', author: '菲克', type: '综合', lv: 1, url: 'https://ficor.net' },
 ];
