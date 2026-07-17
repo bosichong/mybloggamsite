@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  { icon: '✎', title: '多样博文', desc: '生活日记、技术分享、文学创作、艺术作品，每种类型都有独特魅力' },
+  { icon: '⚡', title: '技能系统', desc: '提升写作、技术、文学、编程、绘画等能力，解锁更多高级内容' },
+  { icon: '🛠', title: '网站维护', desc: 'SEO优化、安全维护、页面美化，确保博客稳定运行' },
+  { icon: '📚', title: '学习成长', desc: '自学编程、阅读名著、练习绘画，不断提升个人能力' },
+  { icon: '🎮', title: '休闲娱乐', desc: '合理安排休息和娱乐，保持良好的创作状态' },
+  { icon: '📊', title: '数据统计', desc: '详细的访问量、收入等数据统计，了解博客运营状况' },
+];
+
+const chapters = [
+  { title: '博客萌芽', years: '2002-2005', level: 20, desc: '故事始于2001年的一封神秘邮件，免费域名和主机，从此踏上博客之路。从零开始，在互联网的浪潮中寻找自己的声音。' },
+  { title: '博客黄金时代', years: '2005-2010', level: 40, desc: '中文博客的黄金年代。建立友情链接，加入博客联盟，参与优秀博客大奖赛，在这个百家争鸣的时代书写精彩。' },
+  { title: '博客转型', years: '2010-2015', level: 60, desc: '移动互联网浪潮来袭。从极客前沿到深度技术，从文学创作到哲学批判，不断探索内容的边界。' },
+  { title: '博客挑战', years: '2015-2020', level: 80, desc: '内容创作者的时代。出版书籍，发起开源项目，IP授权合作，在激烈竞争中坚守初心。' },
+  { title: '博客重生', years: '2020-2025', level: 100, desc: '回到最初的起点。涉足游戏开发，参与奖项评选，完成从博主到创作者的完整蜕变。' },
+];
+---
+
+<BaseLayout title="首页">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="nes-container is-dark is-rounded">
+        <div class="hero-text">
+          <img src="/images/启动画面.png" alt="我的博客" class="hero-splash" />
+          <h1 class="hero-title">我的博客</h1>
+          <p class="hero-subtitle">一个互联网游民的博客成长之路</p>
+          <p class="hero-desc">
+            扮演一名博客站长，从2001年收到神秘邮件开始，<br />
+            历经25年互联网风云，书写你的网络传奇。
+          </p>
+          <div class="hero-actions">
+            <a href="/download" class="nes-btn is-success">⬇ 下载游戏</a>
+            <a href="#features" class="nes-btn is-primary">★ 了解更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features-section">
+    <h2 class="section-title"><span class="text-accent">■</span> 游戏特色</h2>
+    <div class="features-grid">
+      {features.map((f) => (
+        <div class="nes-container is-dark">
+          <div class="feature-card">
+            <span class="feature-icon">{f.icon}</span>
+            <h3 class="feature-title">{f.title}</h3>
+            <p class="feature-desc">{f.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="chapters-section">
+    <h2 class="section-title"><span class="text-accent">■</span> 章节剧情</h2>
+    <div class="timeline">
+      {chapters.map((ch, i) => (
+        <div class="nes-container is-dark chapter-card">
+          <div class="chapter-header">
+            <span class="nes-badge">
+              <span class="is-dark">第{i + 1}章</span>
+            </span>
+            <span class="chapter-level">Lv.{ch.level}</span>
+          </div>
+          <h3 class="chapter-title">{ch.title}</h3>
+          <p class="chapter-years">{ch.years}</p>
+          <p class="chapter-desc">{ch.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2 class="section-title"><span class="text-accent">■</span> 关于游戏</h2>
+    <div class="nes-container is-dark">
+      <div class="about-content">
+        <p>《我的博客》是一款关于独立博客经营的模拟经营游戏，使用 <strong>Godot 4.7</strong> 引擎和 <strong>GDScript</strong> 开发。</p>
+        <p>游戏灵感来源于2000年代个人博客的黄金时代，致敬那些在互联网早期坚持写作的独立博客站长们。</p>
+        <p>从撰写第一篇博文，到运营一个万人访问的独立博客；从自学编程，到开发开源项目；从文学青年，到出版畅销书作家——你的博客之路，由你书写。</p>
+        <div class="about-tech">
+          <span class="nes-text is-primary">Godot 4.7</span>
+          <span class="nes-text is-success">GDScript</span>
+          <span class="nes-text is-warning">Pixel Art</span>
+          <span class="nes-text is-error">MIT License</span>
+        </div>
+      </div>
+    </div>
+    <div class="nes-container is-dark" style="margin-top: 1rem;">
+      <div class="about-links">
+        <a href="https://github.com/bosichong/MyBlogGame" target="_blank" class="nes-btn">GitHub</a>
+        <a href="/download" class="nes-btn is-success">下载试玩</a>
+        <a href="/sponsor" class="nes-btn is-error">赞助支持</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  .hero-content .nes-container {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-splash {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    image-rendering: pixelated;
+    border: 2px solid var(--border-color);
+  }
+
+  .hero-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2.2rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    text-shadow: 3px 3px 0 #000;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions .nes-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .features-grid .nes-container {
+    padding: 1.2rem;
+  }
+
+  .feature-card {
+    text-align: center;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chapter-card {
+    padding: 1.2rem;
+    border-left: 4px solid var(--accent);
+  }
+
+  .chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .chapter-level {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  .chapter-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+
+  .chapter-years {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chapter-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .about-content {
+    padding: 0.5rem;
+  }
+
+  .about-content p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .about-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .about-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 1.2rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .chapter-title {
+      font-size: 0.65rem;
+    }
+  }
+</style>

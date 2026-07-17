@@ -1,0 +1,176 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | 我的博客 - 独立博客经营模拟游戏</title>
+    <meta name="description" content={description || '《我的博客》是一款关于独立博客经营的模拟经营游戏。扮演一名博客站长，从2001年开始，书写你的网络传奇。'} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+      @font-face {
+        font-family: 'OPPOSans';
+        src: url('/fonts/OPPOSans-M.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      :root {
+        --bg-dark: #1a1a2e;
+        --bg-darker: #0f0f1a;
+        --bg-card: #16213e;
+        --accent: #e94560;
+        --accent2: #0f3460;
+        --text-light: #e0e0e0;
+        --text-muted: #8892b0;
+        --border-color: #444;
+      }
+
+      body {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        font-family: 'OPPOSans', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      .site-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .nes-container {
+        background: var(--bg-card);
+        border-image-source: initial;
+        border: 2px solid var(--border-color);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .nes-container p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .nes-container.is-dark {
+        background: var(--bg-darker);
+      }
+
+      .nes-btn {
+        font-family: inherit;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.4rem;
+      }
+
+      .nes-btn::after {
+        display: none;
+      }
+
+      .nes-badge {
+        font-size: 0.85rem;
+      }
+
+      .nes-text {
+        font-family: inherit;
+      }
+
+      .page-title {
+        font-family: 'Press Start 2P', monospace;
+        color: var(--accent);
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        text-shadow: 2px 2px 0 #000;
+        word-break: break-all;
+      }
+
+      .page-subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-family: 'Press Start 2P', monospace;
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .nes-badge.is-splited span:first-child {
+        background: var(--accent2);
+      }
+
+      .nes-badge.is-splited span:last-child {
+        background: var(--accent);
+      }
+
+      .text-accent {
+        color: var(--accent);
+      }
+      .text-muted {
+        color: var(--text-muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+      a:hover {
+        color: #ff6b81;
+      }
+
+      @media (max-width: 768px) {
+        .page-title {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <Nav />
+      <main class="main-content">
+        <div class="container">
+          <slot />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

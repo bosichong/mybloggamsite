@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sponsorMethods = [
+  {
+    icon: '♥',
+    title: '爱发电',
+    desc: '通过爱发电平台赞助，支持独立游戏开发。你的每一份支持都是继续前行的动力。',
+    link: '#',
+    status: '即将开通',
+    btnClass: 'is-warning',
+    disabled: true,
+  },
+  {
+    icon: '☕',
+    title: '请喝咖啡',
+    desc: '如果我的游戏给你带来了快乐，不妨请我喝杯咖啡。每一杯咖啡都是温暖的鼓励。',
+    link: '#',
+    status: '即将开通',
+    btnClass: 'is-warning',
+    disabled: true,
+  },
+  {
+    icon: '★',
+    title: 'GitHub Star',
+    desc: '在 GitHub 上给项目点个 Star，这是最简单也最有力的支持方式。',
+    link: 'https://github.com/bosichong/MyBlogGame',
+    status: '立即前往',
+    btnClass: 'is-primary',
+    disabled: false,
+  },
+];
+
+const sponsors = [
+  { name: 'bosichong', role: '开发者 / 独立游戏人', desc: '游戏制作人，独立博客爱好者' },
+  { name: '你', role: '赞助者', desc: '感谢你的支持！你的名字将出现在这里。', placeholder: true },
+];
+
+const sponsorTiers = [
+  { name: '普通赞助', amount: '¥ 10', color: 'is-success' },
+  { name: '铜牌赞助', amount: '¥ 50', color: 'is-primary' },
+  { name: '银牌赞助', amount: '¥ 100', color: 'is-warning' },
+  { name: '金牌赞助', amount: '¥ 500', color: 'is-error' },
+];
+---
+
+<BaseLayout title="赞助支持">
+  <h1 class="page-title">♥ 赞助支持</h1>
+  <p class="page-subtitle">支持独立游戏开发，让好游戏走得更远</p>
+
+  <div class="nes-container is-dark">
+    <div class="sponsor-intro">
+      <p>《我的博客》是一款完全免费的开源游戏，由 <strong class="nes-text is-primary">bosichong</strong> 独立开发。</p>
+      <p>如果你喜欢这款游戏，欢迎通过以下方式赞助支持。你的支持将帮助我投入更多时间完善游戏内容，提升游戏品质。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top: 2rem;"><span class="text-accent">■</span> 赞助方式</h2>
+  <div class="sponsor-methods">
+    {sponsorMethods.map((m) => (
+      <div class="nes-container is-dark">
+        <div class="method-card">
+          <span class="method-icon">{m.icon}</span>
+          <h3 class="method-title">{m.title}</h3>
+          <p class="method-desc">{m.desc}</p>
+          <a
+            href={m.link}
+            class:list={['nes-btn', m.btnClass, m.disabled ? 'is-disabled' : '']}
+            {m.disabled ? { disabled: true } : {}}
+            target={m.link.startsWith('http') ? '_blank' : undefined}
+          >
+            {m.status}
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h2 class="section-title" style="margin-top: 2rem;"><span class="text-accent">■</span> 赞助档位</h2>
+  <div class="tier-grid">
+    {sponsorTiers.map((t) => (
+      <div class="nes-container is-dark">
+        <div class="tier-card">
+          <span class={`nes-text ${t.color}`} style="font-family: 'Press Start 2P', monospace; font-size: 0.65rem;">
+            {t.name}
+          </span>
+          <p class="tier-amount">{t.amount}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h2 class="section-title" style="margin-top: 2rem;"><span class="text-accent">■</span> 赞助者名单</h2>
+  <div class="sponsor-list">
+    {sponsors.map((s) => (
+      <div class="nes-container is-dark">
+        <div class="sponsor-item" class:list={{ 'placeholder': s.placeholder }}>
+          <div class="sponsor-avatar">
+            {s.placeholder ? '?' : s.name[0]}
+          </div>
+          <div class="sponsor-info">
+            <h4 class="sponsor-name">{s.name}</h4>
+            <span class="sponsor-role">{s.role}</span>
+            <p class="sponsor-desc">{s.desc}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="nes-container is-dark" style="margin-top: 1.5rem;">
+    <div class="thank-you">
+      <p class="nes-text is-primary" style="font-family: 'Press Start 2P', monospace; font-size: 0.7rem;">
+        感谢每一位支持者！
+      </p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+        所有赞助资金将用于游戏开发、美术资源采购和服务器维护。
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .sponsor-intro p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .sponsor-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sponsor-methods .nes-container {
+    padding: 1.2rem;
+  }
+
+  .method-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .method-icon {
+    font-size: 2.5rem;
+  }
+
+  .method-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+  }
+
+  .method-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .tier-grid .nes-container {
+    padding: 1rem;
+  }
+
+  .tier-card {
+    text-align: center;
+  }
+
+  .tier-amount {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-top: 0.5rem;
+  }
+
+  .sponsor-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sponsor-list .nes-container {
+    padding: 1rem;
+  }
+
+  .sponsor-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .sponsor-item.placeholder {
+    opacity: 0.5;
+    border: 1px dashed var(--border-color);
+  }
+
+  .sponsor-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--accent2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    min-width: 48px;
+  }
+
+  .sponsor-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+
+  .sponsor-role {
+    font-size: 0.85rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .sponsor-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .thank-you {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .sponsor-methods,
+    .tier-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sponsor-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

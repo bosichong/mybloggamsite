@@ -1,0 +1,127 @@
+---
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4 class="footer-title">我的博客</h4>
+      <p class="footer-desc">一款关于独立博客经营的模拟经营游戏</p>
+      <p class="footer-tagline">一个互联网游民的博客成长之路</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-title">链接</h4>
+      <ul class="footer-links">
+        <li><a href="/">首页</a></li>
+        <li><a href="/download">下载游戏</a></li>
+        <li><a href="/sponsor">赞助支持</a></li>
+        <li><a href="/circle">博客圈子</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-title">技术栈</h4>
+      <ul class="footer-links">
+        <li><span class="nes-text is-disabled">Godot 4.7</span></li>
+        <li><span class="nes-text is-disabled">GDScript</span></li>
+        <li><span class="nes-text is-disabled">Pixel Art</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} bosichong. <a href="/LICENSE" class="license-link">MIT License</a>.</p>
+    <p class="nes-text is-disabled" style="font-size:0.8rem;">Powered by Astro + NES.css</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0a0a0a;
+    border-top: 3px solid var(--accent);
+    margin-top: auto;
+    padding: 2rem 1rem 0;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-title {
+    color: var(--accent);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .footer-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    max-width: 960px;
+    margin: 2rem auto 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .license-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .license-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

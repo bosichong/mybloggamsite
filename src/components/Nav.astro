@@ -1,0 +1,174 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { href: '/', label: '首页', icon: '★' },
+  { href: '/download', label: '下载', icon: '⬇' },
+  { href: '/sponsor', label: '赞助', icon: '♥' },
+  { href: '/circle', label: '圈子', icon: '✦' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <i class="snes-jp-logo logo-icon"></i>
+      <span class="logo-text">我的博客</span>
+    </a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={{ 'nav-link': true, active: currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) }}
+            >
+              <span class="nav-icon">{item.icon}</span>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: #111;
+    border-bottom: 3px solid var(--accent);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+  }
+
+  .logo-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .logo-text {
+    color: #fff;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    border-radius: 1px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.6rem 1rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    border-radius: 0;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--accent2);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .nav-icon {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 640px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #111;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .nav.open {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+
+    .nav-link {
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--border-color);
+      margin-bottom: 0.3rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+    }
+  });
+</script>
