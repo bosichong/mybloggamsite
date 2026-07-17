@@ -157,7 +157,6 @@ export const blogs = [
 ];
 
 export const extraBloggers = [
-  { blog: '碎言', author: 'J_sky2021', type: '综合', lv: 99, url: 'https://www.suiyan.cc' },
   { blog: 'liWanr', author: 'liWanr', type: '综合', lv: 1, url: 'https://liWanr.com' },
   { blog: '一望成欢🍀', author: '一望成欢🍀', type: '综合', lv: 1, url: 'https://wanqingcheng.cn' },
   { blog: '姓王者的博客', author: '姓王者', type: '综合', lv: 1, url: 'https://xingwangzhe.fun/' },
