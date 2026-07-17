@@ -15,10 +15,11 @@ const sponsorMethods = [
     icon: '☕',
     title: '请喝咖啡',
     desc: '如果我的游戏给你带来了快乐，不妨请我喝杯咖啡。每一杯咖啡都是温暖的鼓励。',
-    link: '#',
-    status: '即将开通',
-    btnClass: 'is-warning',
-    disabled: true,
+    link: 'https://www.suiyan.cc/assets/images/zs.jpg',
+    status: '扫码赞赏',
+    btnClass: 'is-success',
+    disabled: false,
+    qrcode: 'https://www.suiyan.cc/assets/images/zs.jpg',
   },
   {
     icon: '★',
@@ -63,17 +64,29 @@ const sponsorTiers = [
           <span class="method-icon">{m.icon}</span>
           <h3 class="method-title">{m.title}</h3>
           <p class="method-desc">{m.desc}</p>
-          <a
-            href={m.link}
-            class:list={['nes-btn', m.btnClass, m.disabled ? 'is-disabled' : '']}
-            {m.disabled ? { disabled: true } : {}}
-            target={m.link.startsWith('http') ? '_blank' : undefined}
-          >
-            {m.status}
-          </a>
+          {m.qrcode ? (
+            <button class="nes-btn is-success" onclick="document.getElementById('qrcode-modal').classList.add('show')">扫码赞赏</button>
+          ) : (
+            <a
+              href={m.link}
+              class={['nes-btn', m.btnClass].join(' ')}
+              target="_blank"
+            >
+              {m.status}
+            </a>
+          )}
         </div>
       </div>
     ))}
+  </div>
+
+  <div class="modal-overlay" id="qrcode-modal" onclick="if (event.target === this) this.classList.remove('show')">
+    <div class="nes-container is-dark modal-content">
+      <div class="modal-close" onclick="document.getElementById('qrcode-modal').classList.remove('show')">✕</div>
+      <p class="nes-text is-primary" style="font-family:'Press Start 2P',monospace;font-size:0.7rem;text-align:center;margin-bottom:1rem;">☕ 扫码请喝咖啡</p>
+      <img src="https://www.suiyan.cc/assets/images/zs.jpg" alt="赞赏码" class="modal-qrcode" />
+      <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:0.8rem;">感谢你的支持！</p>
+    </div>
   </div>
 
   <h2 class="section-title" style="margin-top: 2rem;"><span class="text-accent">■</span> 赞助档位</h2>
@@ -136,6 +149,10 @@ const sponsorTiers = [
     padding: 1.2rem;
   }
 
+  .sponsor-methods .nes-container:has(.qrcode-img) {
+    grid-column: span 1;
+  }
+
   .method-card {
     text-align: center;
     display: flex;
@@ -158,6 +175,52 @@ const sponsorTiers = [
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.6;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay.show {
+    display: flex;
+  }
+
+  .modal-content {
+    max-width: 280px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .modal-close:hover {
+    color: var(--accent);
+  }
+
+  .modal-qrcode {
+    width: 180px;
+    height: 180px;
+    image-rendering: pixelated;
+    border: 2px solid var(--border-color);
   }
 
   .tier-grid {
