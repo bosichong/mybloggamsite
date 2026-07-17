@@ -105,7 +105,9 @@ export const sponsorTiers = [
 export const sponsorsByTier: Record<string, { name: string; role: string; desc: string }[]> = {
   hao: [],
   dacan: [],
-  naicha: [],
+  naicha: [
+    { name: 'liWanr', role: '赞助者', desc: '期待ing，尽快开发，加油！' },
+  ],
   kafei: [],
   other: [
     { name: 'bosichong', role: '开发者 / 独立游戏人', desc: '游戏制作人，独立博客爱好者' },
@@ -156,4 +158,13 @@ export const blogs = [
 
 export const extraBloggers = [
   { blog: '碎言', author: 'J_sky2021', type: '综合', lv: 99, url: 'https://www.suiyan.cc' },
+  { blog: 'liWanr', author: 'liWanr', type: '综合', lv: 1, url: 'https://liWanr.com' },
+  { blog: '一望成欢🍀', author: '一望成欢🍀', type: '综合', lv: 1, url: 'https://wanqingcheng.cn' },
+  { blog: '姓王者的博客', author: '姓王者', type: '综合', lv: 1, url: 'https://xingwangzhe.fun/' },
+  { blog: '秋风于渭水', author: '去年夏天', type: '综合', lv: 1, url: 'https://www.tjsky.net' },
+  { blog: '热衷于的博客', author: '热衷于', type: '综合', lv: 1, url: 'https://zooyoo.top/' },
+  { blog: '爱娃子', author: '爱娃子', type: '综合', lv: 1, url: 'https://www.aiwazi.com/' },
+  { blog: '瓦匠不舟', author: '瓦匠', type: '综合', lv: 1, url: 'https://airy.ink' },
+  { blog: '云白的地球online', author: 'deepwhitex', type: '综合', lv: 1, url: 'https://deepwhitex.com' },
+  { blog: 'Mayx的博客', author: 'Mayx', type: '综合', lv: 1, url: 'https://mabbs.github.io' },
 ];
