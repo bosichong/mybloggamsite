@@ -1,11 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const platforms = [
-  { name: 'Windows', icon: '🪟', status: '开发中', note: '预计暑假发布试玩版本', class: 'is-warning' },
-  { name: 'macOS', icon: '🍎', status: '开发中', note: '预计暑假发布试玩版本', class: 'is-warning' },
-  { name: 'Linux', icon: '🐧', status: '开发中', note: '预计暑假发布试玩版本', class: 'is-warning' },
-];
+import { platforms, specs } from '../config/site';
 ---
 
 <BaseLayout title="下载游戏">
@@ -58,30 +53,12 @@ const platforms = [
   <div class="nes-container is-dark with-title" style="margin-top: 1.5rem;">
     <p class="title">系统要求</p>
     <div class="specs">
-      <div class="spec-row">
-        <span class="spec-label">操作系统</span>
-        <span class="spec-value">Windows 7+ / macOS 10.13+ / Linux</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">处理器</span>
-        <span class="spec-value">双核 2.0 GHz 以上</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">内存</span>
-        <span class="spec-value">2 GB RAM</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">显卡</span>
-        <span class="spec-value">支持 OpenGL 3.3 / Vulkan 1.0</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">存储</span>
-        <span class="spec-value">约 200 MB 可用空间</span>
-      </div>
-      <div class="spec-row">
-        <span class="spec-label">引擎</span>
-        <span class="spec-value">Godot 4.7</span>
-      </div>
+      {specs.map((s) => (
+        <div class="spec-row">
+          <span class="spec-label">{s.label}</span>
+          <span class="spec-value">{s.value}</span>
+        </div>
+      ))}
     </div>
   </div>
 </BaseLayout>

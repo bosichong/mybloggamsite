@@ -1,22 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const features = [
-  { icon: '✎', title: '多样博文', desc: '生活日记、技术分享、文学创作、艺术作品，每种类型都有独特魅力' },
-  { icon: '⚡', title: '技能系统', desc: '提升写作、技术、文学、编程、绘画等能力，解锁更多高级内容' },
-  { icon: '🛠', title: '网站维护', desc: 'SEO优化、安全维护、页面美化，确保博客稳定运行' },
-  { icon: '📚', title: '学习成长', desc: '自学编程、阅读名著、练习绘画，不断提升个人能力' },
-  { icon: '🎮', title: '休闲娱乐', desc: '合理安排休息和娱乐，保持良好的创作状态' },
-  { icon: '📊', title: '数据统计', desc: '详细的访问量、收入等数据统计，了解博客运营状况' },
-];
-
-const chapters = [
-  { title: '博客萌芽', years: '2002-2005', level: 20, desc: '故事始于2001年的一封神秘邮件，免费域名和主机，从此踏上博客之路。从零开始，在互联网的浪潮中寻找自己的声音。' },
-  { title: '博客黄金时代', years: '2005-2010', level: 40, desc: '中文博客的黄金年代。建立友情链接，加入博客联盟，参与优秀博客大奖赛，在这个百家争鸣的时代书写精彩。' },
-  { title: '博客转型', years: '2010-2015', level: 60, desc: '移动互联网浪潮来袭。从极客前沿到深度技术，从文学创作到哲学批判，不断探索内容的边界。' },
-  { title: '博客挑战', years: '2015-2020', level: 80, desc: '内容创作者的时代。出版书籍，发起开源项目，IP授权合作，在激烈竞争中坚守初心。' },
-  { title: '博客重生', years: '2020-2025', level: 100, desc: '回到最初的起点。涉足游戏开发，参与奖项评选，完成从博主到创作者的完整蜕变。' },
-];
+import { features, chapters, bilibili, qqGroup } from '../config/site';
 ---
 
 <BaseLayout title="首页">
@@ -35,6 +19,21 @@ const chapters = [
             <a href="/download" class="nes-btn is-success">⬇ 下载游戏</a>
             <a href="#features" class="nes-btn is-primary">★ 了解更多</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="nes-container is-dark">
+      <div class="video-content">
+        <div class="video-embed">
+          <iframe src={`https://player.bilibili.com/player.html?bvid=${bilibili.bvid}&autoplay=0`} frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <p class="video-title">{bilibili.title}</p>
+          <p class="video-desc">{bilibili.desc}</p>
+          <a href={bilibili.url} target="_blank" class="nes-btn is-primary">在 B 站观看更多</a>
         </div>
       </div>
     </div>
@@ -86,6 +85,12 @@ const chapters = [
           <span class="nes-text is-success">GDScript</span>
           <span class="nes-text is-warning">Pixel Art</span>
           <span class="nes-text is-error">MIT License</span>
+        </div>
+        <div class="about-qq">
+          <span class="qq-icon">💬</span>
+          <span>游戏交流 QQ 群：</span>
+          <strong class="qq-number">{qqGroup.number}</strong>
+          <span class="nes-text is-disabled">{qqGroup.message}</span>
         </div>
       </div>
     </div>
@@ -227,6 +232,55 @@ const chapters = [
     line-height: 1.7;
   }
 
+  .video-content {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 0.5rem;
+  }
+
+  .video-embed {
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 100%;
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid var(--border-color);
+  }
+
+  .video-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .video-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  .video-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    .video-content {
+      flex-direction: column;
+    }
+
+    .video-embed {
+      width: 100%;
+    }
+  }
+
   .about-content {
     padding: 0.5rem;
   }
@@ -241,6 +295,28 @@ const chapters = [
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-top: 1rem;
+  }
+
+  .about-qq {
+    margin-top: 1.2rem;
+    padding: 0.8rem 1rem;
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+  }
+
+  .qq-icon {
+    font-size: 1.2rem;
+  }
+
+  .qq-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
   }
 
   .about-links {

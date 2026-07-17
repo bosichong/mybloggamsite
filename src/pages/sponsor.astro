@@ -1,48 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const sponsorMethods = [
-  {
-    icon: '♥',
-    title: '爱发电',
-    desc: '通过爱发电平台赞助，支持独立游戏开发。你的每一份支持都是继续前行的动力。',
-    link: '#',
-    status: '即将开通',
-    btnClass: 'is-warning',
-    disabled: true,
-  },
-  {
-    icon: '☕',
-    title: '请喝咖啡',
-    desc: '如果我的游戏给你带来了快乐，不妨请我喝杯咖啡。每一杯咖啡都是温暖的鼓励。',
-    link: 'https://www.suiyan.cc/assets/images/zs.jpg',
-    status: '扫码赞赏',
-    btnClass: 'is-success',
-    disabled: false,
-    qrcode: 'https://www.suiyan.cc/assets/images/zs.jpg',
-  },
-  {
-    icon: '★',
-    title: 'GitHub Star',
-    desc: '在 GitHub 上给项目点个 Star，这是最简单也最有力的支持方式。',
-    link: 'https://github.com/bosichong/MyBlogGame',
-    status: '立即前往',
-    btnClass: 'is-primary',
-    disabled: false,
-  },
-];
-
-const sponsors = [
-  { name: 'bosichong', role: '开发者 / 独立游戏人', desc: '游戏制作人，独立博客爱好者' },
-  { name: '你', role: '赞助者', desc: '感谢你的支持！你的名字将出现在这里。', placeholder: true },
-];
-
-const sponsorTiers = [
-  { name: '普通赞助', amount: '¥ 10', color: 'is-success' },
-  { name: '铜牌赞助', amount: '¥ 50', color: 'is-primary' },
-  { name: '银牌赞助', amount: '¥ 100', color: 'is-warning' },
-  { name: '金牌赞助', amount: '¥ 500', color: 'is-error' },
-];
+import { sponsorMethods, sponsorTiers, sponsorsByTier } from '../config/site';
 ---
 
 <BaseLayout title="赞助支持">
@@ -104,21 +62,58 @@ const sponsorTiers = [
   </div>
 
   <h2 class="section-title" style="margin-top: 2rem;"><span class="text-accent">■</span> 赞助者名单</h2>
-  <div class="sponsor-list">
-    {sponsors.map((s) => (
-      <div class="nes-container is-dark">
-        <div class="sponsor-item" class:list={{ 'placeholder': s.placeholder }}>
-          <div class="sponsor-avatar">
-            {s.placeholder ? '?' : s.name[0]}
+  <div class="sponsor-tiers">
+    {sponsorTiers.map((tier) => {
+      const members = sponsorsByTier[tier.key] || [];
+      return (
+        <div class="nes-container is-dark tier-group">
+          <div class="tier-group-header">
+            <span class={`nes-text ${tier.color}`} style="font-family:'Press Start 2P',monospace;font-size:0.7rem;">{tier.name} ({tier.amount})</span>
+            <span class="tier-count">{members.length > 0 ? `${members.length} 人` : '虚位以待'}</span>
           </div>
-          <div class="sponsor-info">
-            <h4 class="sponsor-name">{s.name}</h4>
-            <span class="sponsor-role">{s.role}</span>
-            <p class="sponsor-desc">{s.desc}</p>
-          </div>
+          {members.length > 0 ? (
+            <div class="sponsor-list">
+              {members.map((s) => (
+                <div class="sponsor-member">
+                  <div class="sponsor-item">
+                    <div class="sponsor-avatar">{s.name[0]}</div>
+                    <div class="sponsor-info">
+                      <h4 class="sponsor-name">{s.name}</h4>
+                      <span class="sponsor-role">{s.role}</span>
+                      <p class="sponsor-desc">{s.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div class="tier-group-empty">
+              <span class="nes-text is-disabled" style="font-size:0.85rem;">暂无赞助者，期待你的支持</span>
+            </div>
+          )}
         </div>
+      );
+    })}
+    <div class="nes-container is-dark tier-group">
+      <div class="tier-group-header">
+        <span class="nes-text is-disabled" style="font-family:'Press Start 2P',monospace;font-size:0.7rem;">其他</span>
+        <span class="tier-count">{sponsorsByTier.other.length} 人</span>
       </div>
-    ))}
+      <div class="sponsor-list">
+        {sponsorsByTier.other.map((s) => (
+          <div class="sponsor-member">
+            <div class="sponsor-item">
+              <div class="sponsor-avatar">{s.name[0]}</div>
+              <div class="sponsor-info">
+                <h4 class="sponsor-name">{s.name}</h4>
+                <span class="sponsor-role">{s.role}</span>
+                <p class="sponsor-desc">{s.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 
   <div class="nes-container is-dark" style="margin-top: 1.5rem;">
@@ -223,6 +218,39 @@ const sponsorTiers = [
     border: 2px solid var(--border-color);
   }
 
+  .sponsor-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tier-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .tier-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .tier-group-footer {
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px dashed var(--border-color);
+    margin-top: 0.5rem;
+  }
+
+  .tier-group-empty {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px dashed var(--border-color);
+  }
+
   .tier-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -252,6 +280,12 @@ const sponsorTiers = [
 
   .sponsor-list .nes-container {
     padding: 1rem;
+  }
+
+  .sponsor-member {
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
   }
 
   .sponsor-item {

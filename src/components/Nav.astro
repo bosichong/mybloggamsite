@@ -1,11 +1,6 @@
 ---
+import { navItems } from '../config/site';
 const currentPath = Astro.url.pathname;
-const navItems = [
-  { href: '/', label: '首页', icon: '★' },
-  { href: '/download', label: '下载', icon: '⬇' },
-  { href: '/sponsor', label: '赞助', icon: '♥' },
-  { href: '/circle', label: '圈子', icon: '✦' },
-];
 ---
 
 <header class="site-header">

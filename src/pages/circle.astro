@@ -1,72 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const blogAggregators = [
-  { name: '博友圈', url: 'https://www.boyouquan.com/', desc: '博客人的朋友圈，将一个个散落在各处的孤岛连接成一片广袤无垠的新大陆！' },
-  { name: '十年之约', url: 'https://www.foreverblog.cn/', desc: '一个人的寂寞，一群人的狂欢。汇聚坚持写作十年的独立博主。' },
-  { name: 'BlogFinder', url: 'https://bf.zzxworld.com/', desc: '聚合优秀的个人博客，发掘优质的个人博客文章和内容。' },
-  { name: '好站网', url: 'https://haozhan.wang/', desc: '发现好站，展示好站，收录优质中文独立网站。' },
-  { name: 'BlogsClub', url: 'https://blogs.club/', desc: '致力于为每一位博主提供展示自我、互动交流的绝佳平台。' },
-  { name: '有个站', url: 'https://yougezhan.com/', desc: '收录优质中文独立博客，探索网络世界的个性表达与深度思考。' },
-  { name: '若梦博客', url: 'https://rm.bugung.com/', desc: '每一个博客都是精神的驿站，我们不同行，但彼此照亮。' },
-  { name: '博客大联盟', url: 'https://blogalliance.cn/', desc: '发现值得反复阅读的独立博客，连接每一个独立思考的灵魂。' },
-];
-
-const blogs = [
-  { name: '碎言', url: 'https://www.suiyan.cc/', desc: '独立博客集合，收藏优质中文独立博客与 RSS 聚合。' },
-  { name: '阮一峰的网络日志', url: 'https://www.ruanyifeng.com/blog/', desc: '科技爱好者周刊作者，每周分享值得阅读的科技内容。' },
-  { name: 'Obaby', url: 'https://www.obaby.org.cn/', desc: '黑客程序媛 / 逆向工程师 / 人工智能学徒 / 用爱发电的独立开发者。' },
-  { name: '素生', url: 'https://susheng.net/', desc: '误读人生，化人生活。在文字中找寻生活的另一种可能。' },
-  { name: '二丫讲梵', url: 'https://wiki.eryajf.net/', desc: '学习记录分享，以技术笔记为主的个人知识库。' },
-  { name: '孤斗', url: 'https://www.doomu.cn/', desc: '很酷的博客，分享设计、前端、生活、读书、思考等内容。' },
-  { name: '秋风于渭水', url: 'https://www.zhangxiaocai.cn/', desc: '佛系码农的小窝，技术向个人博客。' },
-  { name: '老T博客', url: 'https://www.laotblog.com/', desc: '法律、科技和生活。一位法律人的跨界思考。' },
-  { name: '一派胡言', url: 'https://yipaihuyan.com/', desc: '如果你在纵容，就不要抱怨世道变坏。' },
-  { name: '白熊阿丸的小屋', url: 'https://www.baixiongaw.cn/', desc: '在这里可以看到一个真实的我，书写我的一切。' },
-  { name: '枫林灯语', url: 'https://www.maplelin.xyz/', desc: '深山踏红叶，耳畔闻鹿鸣。一个充满诗意的个人空间。' },
-  { name: '莫比乌斯', url: 'https://www.mobius.fun/', desc: '写作，一场自我悖驳的旅程。写自己的生活，也写自己的讣告。' },
-  { name: 'liWanr', url: 'https://liwanr.com/', desc: 'Every nobody is somebody. 每个人都有自己的故事。' },
-  { name: '优世界', url: 'https://www.ushijie.com/', desc: '喜欢折腾博客、制作主题、分享前端技术的独立开发者。' },
-  { name: '水拍石', url: 'https://shuipaishi.com/', desc: '追寻更好的自己。记录成长与思考的轨迹。' },
-  { name: '八咫乌', url: 'https://zhidawo.com/', desc: '思君如满月，夜夜减清辉。' },
-  { name: '愆伏', url: 'https://www.qianfu.com/', desc: '互联网杂谈，关于设计、技术与思考。' },
-  { name: 'CC的数字花园', url: 'https://www.ccdd.xyz/', desc: '精神在这个世界上的一片自留地，不是传统意义上的博客。' },
-  { name: '太隐', url: 'https://www.taiyin.cn/', desc: '一个人的思想发育史就是他的阅读史。' },
-  { name: '理论派', url: 'https://www.lilunpai.com/', desc: '意识不止算法，心灵自有归途。哲学与科技的交汇。' },
-  { name: '揆机', url: 'https://www.kuiji.xyz/', desc: '一个法哲学研究者的博客，记录学术之路和社会观察。' },
-  { name: 'Yihui Xie', url: 'https://yihui.org/', desc: '一些书信。一些文章。R语言、knitr、blogdown 作者。' },
-  { name: 'Owen的博客', url: 'https://www.owenblog.com/', desc: '关注技术、读书、摘抄、工具分享、工作流、深度工作等方向。' },
-  { name: '映屿', url: 'https://www.yingyu.com/', desc: '关于互联网、书籍、生活琐事以及那些一闪而过的念头。' },
-  { name: '特立独行的异类', url: 'https://www.yilei.com/', desc: '一张肆无忌惮的脸，一颗桀骜不驯的心。' },
-  { name: 'ScarSu', url: 'https://www.scarsu.com/', desc: '96女性程序员，热爱前端技术，关注自我管理、心智成长与极简生活。' },
-  { name: 'BORBER', url: 'https://www.borber.cn/', desc: '跌宕歌词，纵横书卷，不与遣年华。' },
-  { name: '图灵技术域', url: 'https://www.turingtech.com/', desc: '徐奕的专栏——机器学习、软件工程、计算机大佬。' },
-];
+import { blogAggregators, blogs, extraBloggers } from '../config/site';
 ---
 
 <BaseLayout title="博客圈子">
   <h1 class="page-title">✦ 博客圈子</h1>
-  <p class="page-subtitle">收藏优质独立博客与博客聚合平台</p>
+  <p class="page-subtitle">收藏优质独立博客、博客聚合平台与游戏群演博主</p>
 
   <div class="nes-container is-dark">
     <div class="circle-intro">
-      <p>这里收藏了一些优质的中文独立博客，以及优秀的博客聚合平台。</p>
-      <p style="margin-top: 0.3rem; color: var(--text-muted); font-size: 0.85rem;">
-        这些博客来自<a href="https://www.suiyan.cc/links" target="_blank">碎言·链接</a>等聚合平台，
-        如果你也希望自己的博客出现在这里，欢迎<a href="https://github.com/bosichong/MyBlogGame" target="_blank">联系我</a>。
-      </p>
+      <p>这里收录了优质独立博客、博客聚合平台，以及在《我的博客》游戏中登场的群演博主。</p>
       <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.85rem;">
         共收录 <strong class="nes-text is-primary">{blogs.length}</strong> 个独立博客 ·
-        <strong class="nes-text is-warning">{blogAggregators.length}</strong> 个聚合平台
-        · 来自 <a href="https://www.suiyan.cc/links" target="_blank">碎言·链接</a>
+        <strong class="nes-text is-warning">{blogAggregators.length}</strong> 个聚合平台 ·
+        <strong class="nes-text is-error">{extraBloggers.length}</strong> 位群演博主
       </p>
     </div>
   </div>
 
   <h2 class="section-title" style="margin-top: 2rem;">
+    <span class="text-accent">■</span> 群演博客
+  </h2>
+  <p class="section-subtitle">在《我的博客》游戏中「博客江湖」联盟登场的博主们 ——「每一个独立博客，都是一个独一无二的世界。」向群演博主们表示深深的感谢！🙏</p>
+  <div class="extra-grid">
+    {extraBloggers.map((b) => (
+      <a href={b.url} target="_blank" class="extra-card">
+        <div class="extra-blog">{b.blog}</div>
+        <div class="extra-meta">
+          <span class="extra-author">@{b.author}</span>
+          <span class:list={['extra-type', b.type === '编程' ? 'type-code' : b.type === '文学' ? 'type-lit' : 'type-mix']}>{b.type}</span>
+          <span class="extra-lv">Lv.{b.lv}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <h2 class="section-title" style="margin-top: 2rem;">
     <span class="text-accent">■</span> 独立博客
   </h2>
-  <p class="section-subtitle">值得反复阅读的个人思考空间</p>
+  <p class="section-subtitle">值得反复阅读的个人思考空间，如果你也有优质独立博客推荐，欢迎<a href="https://github.com/bosichong/MyBlogGame" target="_blank">联系我</a></p>
   <div class="blog-grid">
     {blogs.map((blog) => (
       <div class="nes-container is-dark blog-card">
@@ -82,7 +54,7 @@ const blogs = [
   <h2 class="section-title" style="margin-top: 2rem;">
     <span class="text-accent">■</span> 博客聚合平台
   </h2>
-  <p class="section-subtitle">发现更多独立博客的入口</p>
+  <p class="section-subtitle">发现更多独立博客的入口，如果你也希望自己的博客聚合平台出现在这里，欢迎<a href="https://github.com/bosichong/MyBlogGame" target="_blank">联系我</a></p>
   <div class="aggregator-grid">
     {blogAggregators.map((a) => (
       <div class="nes-container is-dark aggregator-card">
@@ -205,8 +177,77 @@ const blogs = [
     padding: 1rem;
   }
 
+  .extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .extra-card {
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .extra-card {
+    text-decoration: none;
+  }
+
+  .extra-blog {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .extra-meta {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  .extra-author {
+    color: var(--accent);
+  }
+
+  .extra-type {
+    padding: 0.05rem 0.3rem;
+    font-size: 0.6rem;
+  }
+
+  .type-code {
+    background: #0f3460;
+    color: #88d0ff;
+  }
+
+  .type-lit {
+    background: #3a1a1a;
+    color: #ff9e9e;
+  }
+
+  .type-mix {
+    background: #2a3a1a;
+    color: #a0e0a0;
+  }
+
+  .extra-lv {
+    color: var(--text-muted);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+  }
+
   @media (max-width: 768px) {
     .aggregator-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .extra-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -214,6 +255,10 @@ const blogs = [
   @media (max-width: 640px) {
     .blog-grid,
     .aggregator-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .extra-grid {
       grid-template-columns: 1fr;
     }
   }
