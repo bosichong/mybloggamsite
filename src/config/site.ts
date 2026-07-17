@@ -123,6 +123,7 @@ export const blogAggregators = [
   { name: '有个站', url: 'https://yougezhan.com/', desc: '收录优质中文独立博客，探索网络世界的个性表达与深度思考。' },
   { name: '若梦博客', url: 'https://rm.bugung.com/', desc: '每一个博客都是精神的驿站，我们不同行，但彼此照亮。' },
   { name: '博客大联盟', url: 'https://blogalliance.cn/', desc: '发现值得反复阅读的独立博客，连接每一个独立思考的灵魂。' },
+  { name: '你来啦！', url: 'https://nilai.la/', desc: '博客站长聚合平台 · 在地图上发现每一个独立博客' },
 ];
 
 export const blogs = [
