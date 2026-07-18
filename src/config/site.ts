@@ -119,10 +119,10 @@ export const blogAggregators = [
   { name: '十年之约', url: 'https://www.foreverblog.cn/', desc: '一个人的寂寞，一群人的狂欢。汇聚坚持写作十年的独立博主。' },
   { name: 'BlogFinder', url: 'https://bf.zzxworld.com/', desc: '聚合优秀的个人博客，发掘优质的个人博客文章和内容。' },
   { name: '好站网', url: 'https://haozhan.wang/', desc: '发现好站，展示好站，收录优质中文独立网站。' },
-  { name: 'BlogsClub', url: 'https://blogs.club/', desc: '致力于为每一位博主提供展示自我、互动交流的绝佳平台。' },
-  { name: '有个站', url: 'https://yougezhan.com/', desc: '收录优质中文独立博客，探索网络世界的个性表达与深度思考。' },
-  { name: '若梦博客', url: 'https://rm.bugung.com/', desc: '每一个博客都是精神的驿站，我们不同行，但彼此照亮。' },
-  { name: '博客大联盟', url: 'https://blogalliance.cn/', desc: '发现值得反复阅读的独立博客，连接每一个独立思考的灵魂。' },
+  { name: 'BlogsClub', url: 'https://www.blogsclub.org/apply.html?inviteCode=8f2cd654', desc: '致力于为每一位博主提供展示自我、互动交流的绝佳平台。' },
+  { name: '有个站', url: 'https://www.ygz.ink', desc: '收录优质中文独立博客，探索网络世界的个性表达与深度思考。' },
+  { name: '若梦博客', url: 'https://www.rmbk.cc', desc: '每一个博客都是精神的驿站，我们不同行，但彼此照亮。' },
+  { name: '博客大联盟', url: 'https://bo.ke/', desc: '发现值得反复阅读的独立博客，连接每一个独立思考的灵魂。' },
   { name: '你来啦！', url: 'https://nilai.la/', desc: '博客站长聚合平台 · 在地图上发现每一个独立博客' },
 ];
 
