@@ -127,22 +127,17 @@ export const blogAggregators = [
 ];
 
 export const blogs = [
-  { name: '碎言', url: 'https://www.suiyan.cc/', desc: '独立博客集合，收藏优质中文独立博客与 RSS 聚合。' },
   { name: '阮一峰的网络日志', url: 'https://www.ruanyifeng.com/blog/', desc: '科技爱好者周刊作者，每周分享值得阅读的科技内容。' },
   { name: 'Obaby', url: 'https://www.obaby.org.cn/', desc: '黑客程序媛 / 逆向工程师 / 人工智能学徒 / 用爱发电的独立开发者。' },
   { name: '素生', url: 'https://susheng.net/', desc: '误读人生，化人生活。在文字中找寻生活的另一种可能。' },
-  { name: '二丫讲梵', url: 'https://wiki.eryajf.net/', desc: '学习记录分享，以技术笔记为主的个人知识库。' },
   { name: '孤斗', url: 'https://www.doomu.cn/', desc: '很酷的博客，分享设计、前端、生活、读书、思考等内容。' },
   { name: '秋风于渭水', url: 'https://www.zhangxiaocai.cn/', desc: '佛系码农的小窝，技术向个人博客。' },
   { name: '老T博客', url: 'https://www.laotblog.com/', desc: '法律、科技和生活。一位法律人的跨界思考。' },
   { name: '一派胡言', url: 'https://yipaihuyan.com/', desc: '如果你在纵容，就不要抱怨世道变坏。' },
   { name: '白熊阿丸的小屋', url: 'https://www.baixiongaw.cn/', desc: '在这里可以看到一个真实的我，书写我的一切。' },
-  { name: '枫林灯语', url: 'https://www.maplelin.xyz/', desc: '深山踏红叶，耳畔闻鹿鸣。一个充满诗意的个人空间。' },
   { name: '莫比乌斯', url: 'https://www.mobius.fun/', desc: '写作，一场自我悖驳的旅程。写自己的生活，也写自己的讣告。' },
   { name: 'liWanr', url: 'https://liwanr.com/', desc: 'Every nobody is somebody. 每个人都有自己的故事。' },
-  { name: '优世界', url: 'https://www.ushijie.com/', desc: '喜欢折腾博客、制作主题、分享前端技术的独立开发者。' },
   { name: '水拍石', url: 'https://shuipaishi.com/', desc: '追寻更好的自己。记录成长与思考的轨迹。' },
-  { name: '八咫乌', url: 'https://zhidawo.com/', desc: '思君如满月，夜夜减清辉。' },
   { name: '愆伏', url: 'https://www.qianfu.com/', desc: '互联网杂谈，关于设计、技术与思考。' },
   { name: 'CC的数字花园', url: 'https://www.ccdd.xyz/', desc: '精神在这个世界上的一片自留地，不是传统意义上的博客。' },
   { name: '太隐', url: 'https://www.taiyin.cn/', desc: '一个人的思想发育史就是他的阅读史。' },
@@ -151,10 +146,8 @@ export const blogs = [
   { name: 'Yihui Xie', url: 'https://yihui.org/', desc: '一些书信。一些文章。R语言、knitr、blogdown 作者。' },
   { name: 'Owen的博客', url: 'https://www.owenblog.com/', desc: '关注技术、读书、摘抄、工具分享、工作流、深度工作等方向。' },
   { name: '映屿', url: 'https://www.yingyu.com/', desc: '关于互联网、书籍、生活琐事以及那些一闪而过的念头。' },
-  { name: '特立独行的异类', url: 'https://www.yilei.com/', desc: '一张肆无忌惮的脸，一颗桀骜不驯的心。' },
-  { name: 'ScarSu', url: 'https://www.scarsu.com/', desc: '96女性程序员，热爱前端技术，关注自我管理、心智成长与极简生活。' },
-  { name: 'BORBER', url: 'https://www.borber.cn/', desc: '跌宕歌词，纵横书卷，不与遣年华。' },
-  { name: '图灵技术域', url: 'https://www.turingtech.com/', desc: '徐奕的专栏——机器学习、软件工程、计算机大佬。' },
+
+
 ];
 
 export const extraBloggers = [
