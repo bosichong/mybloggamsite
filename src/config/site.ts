@@ -107,6 +107,7 @@ export const sponsorsByTier: Record<string, { name: string; role: string; desc: 
   dacan: [],
   naicha: [
     { name: 'liWanr', role: '赞助者', desc: '期待ing，尽快开发，加油！', url: 'https://liWanr.com', amount: '¥ 20' },
+    { name: '15', role: '赞助者', desc: '很有意思，加油', url: '#', amount: '¥ 15' },
   ],
   kafei: [],
   other: [
