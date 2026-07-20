@@ -163,4 +163,7 @@ export const extraBloggers = [
   { blog: '宗宗酱', author: '宗宗酱', type: '综合', lv: 1, url: 'https://ygz.ink' },
   { blog: '荒野菲克', author: '菲克', type: '综合', lv: 1, url: 'https://ficor.net' },
   { blog: '海上的宫殿', author: 'Soha', type: '综合', lv: 1, url: 'https://soha.moe/' },
+  { blog: '黄鼠狼的树洞', author: '小黄', type: '综合', lv: 1, url: 'https://blog.weasel6.cn/' },
+  { blog: '允赫先森\'s Blog', author: '允赫先森', type: '综合', lv: 1, url: 'https://www.3v.hk' },
+  { blog: '崔话记', author: '崔话记', type: '综合', lv: 1, url: 'https://cuixiping.com/' },
 ];
