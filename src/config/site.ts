@@ -127,29 +127,6 @@ export const blogAggregators = [
   { name: '你来啦！', url: 'https://nilai.la/', desc: '博客站长聚合平台 · 在地图上发现每一个独立博客' },
 ];
 
-export const blogs = [
-  { name: '莫比乌斯', url: 'https://mobius.blog/', desc: '写作，一场自我悖驳的旅程。写自己的生活，也写自己的讣告。' },
-  { name: 'Obaby', url: 'https://zhongxiaojie.com', desc: '黑客程序媛 / 逆向工程师 / 人工智能学徒 / 用爱发电的独立开发者。' },
-  { name: 'liWanr', url: 'https://liwanr.com/', desc: 'Every nobody is somebody. 每个人都有自己的故事。' },
-  { name: '阮一峰的网络日志', url: 'https://www.ruanyifeng.com/blog/', desc: '科技爱好者周刊作者，每周分享值得阅读的科技内容。' },
-  { name: '孤斗', url: 'https://d-d.design/', desc: '很酷的博客，分享设计、前端、生活、读书、思考等内容。' },
-  { name: '老T博客', url: 'https://lawtee.com', desc: '法律、科技和生活。一位法律人的跨界思考。' },
-  { name: '一派胡言', url: 'https://yipai.me', desc: '如果你在纵容，就不要抱怨世道变坏。' },
-  { name: '秋风于渭水', url: 'https://www.tjsky.net', desc: '佛系码农的小窝，技术向个人博客。' },
-  { name: '白熊阿丸的小屋', url: 'https://blog.bxaw.name', desc: '在这里可以看到一个真实的我，书写我的一切。' },
-  { name: '素生', url: 'https://z.arlmy.me', desc: '误读人生，化人生活。在文字中找寻生活的另一种可能。' },
-  { name: '水拍石', url: 'https://www.leitao.cn/', desc: '追寻更好的自己。记录成长与思考的轨迹。' },
-  { name: '八咫乌', url: 'https://www.vergilisme.com', desc: '思君如满月，夜夜减清辉。' },
-  { name: '愆伏', url: 'https://www.tortorse.com', desc: '互联网杂谈，关于设计、技术与思考。' },
-  { name: 'CC的数字花园', url: 'https://cyrus19.cc', desc: '精神在这个世界上的一片自留地，不是传统意义上的博客。' },
-  { name: '太隐', url: 'https://wangyurui.com/', desc: '一个人的思想发育史就是他的阅读史。' },
-  { name: '理论派', url: 'https://sliun.com/', desc: '意识不止算法，心灵自有归途。哲学与科技的交汇。' },
-  { name: '揆机', url: 'https://pathos.page/', desc: '一个法哲学研究者的博客，记录学术之路和社会观察。' },
-  { name: 'Yihui Xie', url: 'https://yihui.org/cn', desc: '一些书信。一些文章。R语言、knitr、blogdown 作者。' },
-  { name: 'Owen的博客', url: 'https://www.owenyoung.com', desc: '关注技术、读书、摘抄、工具分享、工作流、深度工作等方向。' },
-  { name: '映屿', url: 'https://www.glowisle.me', desc: '关于互联网、书籍、生活琐事以及那些一闪而过的念头。' },
-];
-
 export const extraBloggers = [
   { blog: 'liWanr', author: 'liWanr', type: '综合', lv: 1, url: 'https://liWanr.com' },
   { blog: '一望成欢🍀', author: '一望成欢🍀', type: '综合', lv: 1, url: 'https://wanqingcheng.cn' },
@@ -166,4 +143,5 @@ export const extraBloggers = [
   { blog: '黄鼠狼的树洞', author: '小黄', type: '综合', lv: 1, url: 'https://blog.weasel6.cn/' },
   { blog: '允赫先森\'s Blog', author: '允赫先森', type: '综合', lv: 1, url: 'https://www.3v.hk' },
   { blog: '崔话记', author: '崔话记', type: '综合', lv: 1, url: 'https://cuixiping.com/' },
+  { blog: "Liang's Blog", author: 'Liang', type: '综合', lv: 1, url: 'https://in-x.cc' },
 ];
