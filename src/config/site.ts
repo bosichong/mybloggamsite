@@ -115,6 +115,30 @@ export const sponsorsByTier: Record<string, { name: string; role: string; desc: 
   ],
 };
 
+export const sponsorRecords = [
+  {
+    amount: '¥1.00',
+    from: 'Vind🌙',
+    message: '最低金额，不要介意哈，加油[加油]',
+    blog: 'https://vind.ink/',
+    time: '2026-07-23 17:25:14',
+  },
+  {
+    amount: '¥15.00',
+    from: '15',
+    message: '很有意思，加油',
+    blog: '#',
+    time: '2026-07-19 09:37:55',
+  },
+  {
+    amount: '¥20.00',
+    from: '不叫李宛',
+    message: 'slogan输不全，差评',
+    blog: 'https://liwanr.com/',
+    time: '2026-07-17 16:48:20',
+  },
+];
+
 export const blogAggregators = [
   { name: '博友圈', url: 'https://www.boyouquan.com/', desc: '博客人的朋友圈，将一个个散落在各处的孤岛连接成一片广袤无垠的新大陆！' },
   { name: '十年之约', url: 'https://www.foreverblog.cn/', desc: '一个人的寂寞，一群人的狂欢。汇聚坚持写作十年的独立博主。' },
@@ -144,4 +168,5 @@ export const extraBloggers = [
   { blog: '允赫先森\'s Blog', author: '允赫先森', type: '综合', lv: 1, url: 'https://www.3v.hk' },
   { blog: '崔话记', author: '崔话记', type: '综合', lv: 1, url: 'https://cuixiping.com/' },
   { blog: "Liang's Blog", author: 'Liang', type: '综合', lv: 1, url: 'https://in-x.cc' },
+  { blog: '风·墨', author: 'Vind', type: '综合', lv: 1, url: 'https://Vind.ink' },
 ];
