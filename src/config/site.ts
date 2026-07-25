@@ -167,6 +167,7 @@ export const extraBloggers = [
   { blog: '黄鼠狼的树洞', author: '小黄', type: '综合', lv: 1, url: 'https://blog.weasel6.cn/' },
   { blog: '允赫先森\'s Blog', author: '允赫先森', type: '综合', lv: 1, url: 'https://www.3v.hk' },
   { blog: '崔话记', author: '崔话记', type: '综合', lv: 1, url: 'https://cuixiping.com/' },
+  { blog: '刘其然的部落格', author: 'Qiran', type: '综合', lv: 1, url: 'https://liuqiran.com' },
   { blog: "Liang's Blog", author: 'Liang', type: '综合', lv: 1, url: 'https://in-x.cc' },
   { blog: '风·墨', author: 'Vind', type: '综合', lv: 1, url: 'https://Vind.ink' },
 ];
