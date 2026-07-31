@@ -170,4 +170,5 @@ export const extraBloggers = [
   { blog: '刘其然的部落格', author: 'Qiran', type: '综合', lv: 1, url: 'https://liuqiran.com' },
   { blog: "Liang's Blog", author: 'Liang', type: '综合', lv: 1, url: 'https://in-x.cc' },
   { blog: '风·墨', author: 'Vind', type: '综合', lv: 1, url: 'https://Vind.ink' },
+  { blog: '老姚笔记', author: '夕阳西下', type: '综合', lv: 1, url: 'https://yirz.cn' },
 ];
